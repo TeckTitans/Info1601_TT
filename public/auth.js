@@ -24,6 +24,14 @@
   const app = initializeApp(firebaseConfig);
   const auth = getAuth();
 
+  auth.onAuthStateChanged(user=>{
+    if(user){
+      console.log('user loggin in',user);
+      window.location.replace('PlayerSelection.html');
+    }else{
+      console.log('user logged out');
+    }
+    })
 //listen for auth status changes
   let fullName = document.getElementById("fullname");
   let email = document.getElementById("email");

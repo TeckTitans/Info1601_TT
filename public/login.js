@@ -23,7 +23,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth();
-
+auth.onAuthStateChanged(user=>{
+  if(user){
+    console.log('user loggin in',user);
+    window.location.replace('PlayerSelection.html');
+  }else{
+    console.log('user logged out');
+  }
+  })
 let email = document.getElementById("email");
 let password = document.getElementById("password");
 window.login= function(e) {
