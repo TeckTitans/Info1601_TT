@@ -11,7 +11,33 @@
       background-image: url("https://cdn.nitrome.com/generated-content/images/winter/tile.png");
     }
     h1{
-      margin-top: 80px;
+      margin:0;
+      text-align: center;
+      padding: 20px;
+    }
+    .container{
+      width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    }
+    #targetDisplay{
+      border: solid 2px aliceblue;
+      padding: 10px;
+      font-size: large;
+      margin: 15px;
+      background-color: aliceblue;
+      color: black;
+    }
+    ul{
+      border: 2px solid black;
+      text-align: center;
+    }
+    ul:hover{
+      background-color: cyan;
+      cursor: pointer;
     }
     .correct {
       animation: glow-green 2.2s infinite alternate;
@@ -35,17 +61,6 @@
         box-shadow: 0 0 20px red;
       }
     }
-    #container {
-      text-align: center;
-      padding: 20px;
-      border-radius: 10px;
-    }
-    #Choices ul:hover {
-      width: 50%;
-      display: inline-block;
-      background-color: rgb(117, 255, 255);
-      cursor: pointer;
-    }
     @media only screen and (max-width: 600px) {
       #container {
         padding: 10px;
@@ -60,29 +75,38 @@
       #answers {
         font-size: 14px;
       }
-      #score,
       #targetDisplay,
       #timer {
         font-size: 14px;
       }
     }
+    #Choices{
+      padding: 20px;
+      margin: 4%;
+    }
+    #trivia{
+      border: 2px black solid ;
+ text-align: center;
+ font-size: small;
+ margin-top: 2%;
+    }
+    #score{
+      border-radius: 25px;
+      padding: 20px;
+      background-color: aliceblue;
+    }
   </style>
 </head>
 <body>
-  <div class="w3-display-container">
-    <div id="app"></div>  
-  </div>
-    <div class="w3-display-middle">
-      <h1 class="w3-xxlarge w3-text-white w3-wide">Trivia Game</h1>
-      <div id="targetDisplay"></div><div id="score">Score: 0</div>
+  <div class="container">
+    <div id="app"></div>
+     <div id="score">Scored: 0</div>
+    <div id="targetDisplay"></div>
+  </div>     
+  <h1>Trivia Game</h1> 
+     
       <div id="trivia"></div>
-     <table>
-      <tr>
-        <td id="Choices"></td>
-      </tr>
-        </table>
-    </div>
-  </div>
+     <div id="Choices"></div>
   <script src="script.js"></script>
   <script>
     
@@ -138,7 +162,7 @@
       const Timing = localStorage.getItem('Time');
       TIME_LIMIT = 60 * parseInt(Timing, 10); 
       const target = localStorage.getItem('target');
-      document.getElementById('targetDisplay').innerText = 'Target to beat: ' + target;
+      document.getElementById('targetDisplay').innerText ='Target: ' + target;
       startTimer();
     };
 
@@ -161,7 +185,7 @@
     function onTimesUp() {
       alert('Times up');
       clearInterval(timerInterval);
-      window.location.href = "Rewards.html"; // Corrected this line
+      window.location.href = "Rewards.html"; 
     }
 
     function formatTime(time) {

@@ -29,7 +29,7 @@ function displayTrivia(data) {
   answers.splice(correctAnswerIndex, 0, data.correct_answer);
 
   answers.forEach(answer => {
-    const li = document.createElement('li');
+    const li = document.createElement('ul');
     li.classList.add('Choices');
     li.innerHTML = answer;
     li.addEventListener('click', () => {
@@ -40,7 +40,7 @@ function displayTrivia(data) {
       } else {
         li.classList.add('wrong');
       }
-      fetchTrivia(); // Fetch new trivia after answering
+      fetchTrivia(); 
     });
     answersElement.appendChild(li);
   });
