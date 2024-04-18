@@ -88,12 +88,31 @@
       border: 2px black solid ;
  text-align: center;
  font-size: small;
- margin-top: 2%;
+ margin-top: 4%;
     }
     #score{
       border-radius: 25px;
       padding: 20px;
       background-color: aliceblue;
+      margin-left: 120px;
+    }
+    #exitButton {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    #exitButton:hover {
+      background-color: #0056b3;
+    }
+    .button-container {
+      text-align: center;
     }
   </style>
 </head>
@@ -107,7 +126,10 @@
      
       <div id="trivia"></div>
      <div id="Choices"></div>
-  <script src="script.js"></script>
+     <div class="button-container">
+     <button id="exitButton">Exit Game</button>
+</div> 
+ <script src="script.js"></script>
   <script>
     
     const FULL_DASH_ARRAY = 283;
@@ -185,7 +207,7 @@
     function onTimesUp() {
       alert('Times up');
       clearInterval(timerInterval);
-      window.location.href = "Rewards.html"; 
+      window.location.href = "results.html"; 
     }
 
     function formatTime(time) {
@@ -231,6 +253,11 @@
         .getElementById("base-timer-path-remaining")
         .setAttribute("stroke-dasharray", circleDasharray);
     }
+    document.getElementById("exitButton").addEventListener("click", function() {
+      clearInterval(timerInterval); // Stop the timer
+      alert('Your are exiting the game was it to much for you 😼')
+      window.location.href = "PlayerSelection.html";
+    });
   </script>
 </body>
 </html>
