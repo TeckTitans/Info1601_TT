@@ -24,29 +24,18 @@
   const auth = getAuth();
 
   let fullName = document.getElementById("fullname");
-  let contact = document.getElementById("contact");
   let email = document.getElementById("email");
   let password = document.getElementById("password");
-  let copassword = document.getElementById("copassword")
-
+  
   window.signup = function (e) {
     if(password)
     
-        if(fullName.value == "" || contact.value=="" || email.value =="" || password.value ==""){
+        if(fullName.value == "" || email.value =="" || password.value ==""){
             alert("All Field Are Required")
-        }
-        if(password.value == copassword.value){
-         
-        }
-        else{
-            alert("Password Confirmation is Wrong")
-            return false
-        }
-    
+        }    
         e.preventDefault();
         var obj = {
           firstName: fullName.value,
-          contact: contact.value,
           email: email.value,
           password: password.value,
         };
