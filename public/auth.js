@@ -23,6 +23,15 @@
   const app = initializeApp(firebaseConfig);
   const auth = getAuth();
 
+//listen for auth status changes
+auth.onAuthStateChanged(user=>{
+if(user){
+  console.log('user loggin in',user);
+}else{
+  console.log('user logged out');
+}
+})
+
   let fullName = document.getElementById("fullname");
   let email = document.getElementById("email");
   let password = document.getElementById("password");
@@ -42,7 +51,7 @@
       
         createUserWithEmailAndPassword(auth, obj.email, obj.password)
         .then(function(success){
-            window.location.replace('HTML/login.html')
+            window.location.replace('login.html')
           // console.log(success.user.uid)
           alert("signup successfully")
         })
@@ -52,3 +61,12 @@
        console.log()
         console.log(obj);
       };
+
+      //logout
+      const logout = document.querySelector('#Logout')
+      logout.addEventListener('click',(e)=>{
+        e.preventDefault();
+        auth.signOut().then(()=>{
+          alert("logout successful")
+        });
+      });

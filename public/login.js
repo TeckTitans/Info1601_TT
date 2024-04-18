@@ -42,7 +42,7 @@ window.login= function(e) {
       
       
       
-      window.location.replace('index.html')
+      window.location.replace('PlayerSelection.html')
      // localStorage.setItem(success,user,uid)
       
     })
