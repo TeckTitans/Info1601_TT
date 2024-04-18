@@ -24,39 +24,19 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth();
 
-let email = document.getElementById("email");
-let password = document.getElementById("password");
-window.login= function(e) {
-  e.preventDefault();
-  var obj = {
-    email: email.value,
-    password: password.value,
-  };
-
-  signInWithEmailAndPassword(auth, obj.email, obj.password)
-    .then(function (success) {
-      alert("logined Successfully")
-      var aaaa =  (success.user.uid);
-      localStorage.setItem("uid",aaaa)
-      console.log(aaaa)
-      
-      
-      
-      window.location.replace('PlayerSelection.html')
-     // localStorage.setItem(success,user,uid)
-      
-    })
-    .catch(function (err) {
-      alert("login error"+err);
-    });
-
-  console.log(obj);
-}
-      //logout
+auth.onAuthStateChanged(user=>{
+  if(user){
+    console.log('user loggin in',user);
+  }else{
+    console.log('user logged out');
+    window.location.replace('login.html');
+  }
+  })
+        //logout
 const logout = document.querySelector('#Logout')
-      logout.addEventListener('click',(e)=>{
-        e.preventDefault();
-        auth.signOut().then(()=>{
-          alert("logout successful")
-        });
-      });
+logout.addEventListener('click',(e)=>{
+  e.preventDefault();
+  auth.signOut().then(()=>{
+    alert("logout successful")
+  });
+});

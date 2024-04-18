@@ -4,6 +4,7 @@
     getAuth,
     createUserWithEmailAndPassword,
   } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+  
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -24,14 +25,6 @@
   const auth = getAuth();
 
 //listen for auth status changes
-auth.onAuthStateChanged(user=>{
-if(user){
-  console.log('user loggin in',user);
-}else{
-  console.log('user logged out');
-}
-})
-
   let fullName = document.getElementById("fullname");
   let email = document.getElementById("email");
   let password = document.getElementById("password");
@@ -62,11 +55,5 @@ if(user){
         console.log(obj);
       };
 
-      //logout
-      const logout = document.querySelector('#Logout')
-      logout.addEventListener('click',(e)=>{
-        e.preventDefault();
-        auth.signOut().then(()=>{
-          alert("logout successful")
-        });
-      });
+
+      
