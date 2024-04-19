@@ -213,6 +213,8 @@
 
     function onTimesUp() {
       alert('Times up');
+      localStorage.setItem('Score', score);
+      console.log(score);
       clearInterval(timerInterval);
       window.location.href = "results.html"; 
     }
@@ -265,6 +267,7 @@
       alert('Your are exiting the game was it to much for you 😼')
       window.location.href = "PlayerSelection.html";
     });
+    localStorage.setItem('Score', score);
   </script>
 </body>
 </html>
