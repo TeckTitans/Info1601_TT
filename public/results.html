@@ -78,7 +78,7 @@
       selectedDifficulty=difficulty;
      document.getElementById('Difficulty').innerHTML='Difficult: '+ difficulty;
       const scored=localStorage.getItem('Score');
-      SScored=scored;
+      SScored=parseInt(scored,10);
     document.getElementById('Score').innerHTML='You scored: ' + scored;
     reward();
     }
@@ -194,6 +194,9 @@
             }    
 
     }
+    setTimeout(function () {
+      window.location.href = 'PlayerSelection.html';
+    }, 7000);
 </script>
 </body>
 </html>
