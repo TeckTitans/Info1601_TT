@@ -65,7 +65,7 @@
 <script>
     let selectedDifficulty = null;
     let selectedTime = null;
-    let SScored=0;
+    let SScored=null;
     let Target=null;
     let imageElement = document.getElementById('dynamic-image');
     window.onload = function() {
@@ -79,6 +79,7 @@
      document.getElementById('Difficulty').innerHTML='Difficult: '+ difficulty;
       const scored=localStorage.getItem('Score');
       SScored=parseInt(scored,10);
+      console.log(SScored);
     document.getElementById('Score').innerHTML='You scored: ' + scored;
     reward();
     }
@@ -100,7 +101,7 @@
            document.getElementById('Comment').innerHTML='For Gru'; 
            imageElement.src="https://www.rollingstone.com/wp-content/uploads/2018/06/rs-150371-20130708-mrev-despicable-me-2-624x420-1373308830.jpg?w=624";
             }
-      else if (selectedDifficulty === 'Mediun' && selectedTime === '1' && SScored>Target) {
+      else if (selectedDifficulty === 'Medium' && selectedTime === '1' && SScored>Target) {
            document.getElementById('Comment').innerHTML='Yippie';
           imageElement.src="https://s.yimg.com/ny/api/res/1.2/6cYGcOM.NEkZQRE27axZdg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQzNA--/https://media.zenfs.com/en/tvline.com/8f96f1722e622e271c6f23ca69e4ab80";
             }
@@ -136,7 +137,7 @@
            document.getElementById('Comment').innerHTML='You did it hops'; 
            imageElement.src="https://www.comingsoon.net/wp-content/uploads/sites/3/2023/10/Zootopia-2-Release-Date.jpg";
             }
-      else if (selectedDifficulty === 'Mediun' && selectedTime === '3' && SScored>Target) {
+      else if (selectedDifficulty === 'Medium' && selectedTime === '3' && SScored>Target) {
            document.getElementById('Comment').innerHTML='yaaaaaaaaaaaaaay';
           imageElement.src="https://images.ctfassets.net/3m6gg2lxde82/2Cap0kPnNIkzoMiwlgwruT/c84782d80bb49a8ba7890cd2e9fa87d1/sing_2.jpg?w=2048&h=1137&fit=fill&f=faces&fm=webp&q=80";
             }
@@ -172,7 +173,7 @@
            document.getElementById('Comment').innerHTML='You really have a MegaMind'; 
            imageElement.src="https://facts.net/wp-content/uploads/2023/09/21-facts-about-megamind-megamind-1694564443.jpg";
             }
-      else if (selectedDifficulty === 'Mediun' && selectedTime === '5' && SScored>Target) {
+      else if (selectedDifficulty === 'Medium' && selectedTime === '5' && SScored>Target) {
            document.getElementById('Comment').innerHTML='';
           imageElement.src="https://images.ctfassets.net/3m6gg2lxde82/2Cap0kPnNIkzoMiwlgwruT/c84782d80bb49a8ba7890cd2e9fa87d1/sing_2.jpg?w=2048&h=1137&fit=fill&f=faces&fm=webp&q=80";
             }
@@ -196,7 +197,7 @@
     }
     setTimeout(function () {
       window.location.href = 'PlayerSelection.html';
-    }, 7000);
+    }, 600000);
 </script>
 </body>
 </html>
